@@ -1,0 +1,20 @@
+/* Add this CSS to your App.css or equivalent stylesheet */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px; /* Set the height of the horizontal scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #3c0d67b0; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #7c2cc7; /* Darker color on hover */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #edf2f7; /* Background color of the scrollbar track */
+    border-radius: 4px; /* Rounded corners for the scrollbar track */
+  }
+  
+ 
