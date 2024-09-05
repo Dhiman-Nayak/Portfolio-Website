@@ -9,7 +9,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="z-40 flex items-center justify-between p-5  text-white relative transition-shadow duration-300 ease-in-out w-screen">
+        <div className='sticky top-0 '>
+            <nav className="z-40 flex items-center justify-between p-5  text-white relative transition-shadow duration-300 ease-in-out w-screen ">
             <div className="text-2xl font-bold ">Dhiman<span className='text-[#8A2BE2]'>N</span></div>
             <div
                 className={`flex flex-col gap-5 bg-transparent md:flex-row md:items-center fixed md:static  w-screen md:w-auto right-0 top-16 md:top-0 transition-transform duration-300 ease-in-out transform md:translate-x-0 ${isOpen ? 'translate-x-0' : 'translate-x-full '
@@ -65,6 +66,7 @@ const Navbar = () => {
                 ></div>
             </div>
         </nav>
+        </div>
     );
 };
 

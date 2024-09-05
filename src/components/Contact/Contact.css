@@ -1,0 +1,152 @@
+/* Container Styling */
+.contact-container {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px;
+    /* max-width: 600px; */
+    margin: 1.5em auto;
+    text-align: center;
+    border-width: 2px;
+    border-color: #9d46ee;
+    border-radius: 2%;
+    opacity: 85%;
+    transition: box-shadow 0.3s ease-in-out;
+
+}
+
+.contact-container:hover {
+    opacity: 100%;
+    box-shadow: 0 0 20px #9d46ee;
+}
+
+.contact-container h2 {
+    color: #7e00f5;
+    /* Dark blue heading */
+    margin-bottom: 20px;
+    font-size: 2rem;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.contact-container:hover h2 {
+    text-shadow: 0 0 10px #7e00f5;
+}
+
+/* Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: #9d47ed;
+    /* Light blue for labels */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 5px;
+    outline: none;
+    /* opacity: 90%; */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #7921cc;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Button Styling */
+.submit-btn {
+    background-color: #a350f1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #532c78;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        padding: 30px 15px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px 0;
+    }
+}
+
+/* General Icon Styling */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.icon {
+    font-size: 40px;
+    color: #ffffff;
+    /* Default icon color (white) */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover Effects with Original Colors */
+.github-icon:hover {
+    color: black;
+    background: white;
+    /* GitHub original color */
+}
+
+.linkedin-icon:hover {
+    background: white;
+    /* LinkedIn original color */
+    color: #0077B5;
+}
+
+.instagram-icon:hover {
+    /* color: #e1307d;  */
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.twitter-icon:hover {
+    background: white;
+    color: black;
+    /* Twitter original color */
+}
+.phone-icon:hover {
+    color: #36ea66b2; /* Green color for phone */
+  }
+  
+  .email-icon:hover {
+    color: #EA4335; /* Red color for email */
+  }
