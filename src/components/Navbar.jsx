@@ -1,57 +1,100 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
-    // Toggle the mobile menu open/close
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-        // Prevent background scrolling when the mobile menu is open
-        if (!isOpen) {
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        } else {
-            document.body.style.overflow = 'auto'; // Enable scrolling
-        }
-    };
+    const toggleMenu = useCallback(() => {
+        setIsOpen(prev => !prev);
+        document.body.style.overflow = !isOpen ? 'hidden' : 'auto';
+    }, [isOpen]);
 
-    // Ensure to re-enable scrolling when component unmounts or menu closes
+    const closeMenu = useCallback(() => {
+        setIsOpen(false);
+        document.body.style.overflow = 'auto';
+    }, []);
+
     useEffect(() => {
         return () => {
-            document.body.style.overflow = 'auto'; // Cleanup
+            document.body.style.overflow = 'auto';
         };
     }, []);
 
+    useEffect(() => {
+        closeMenu();
+    }, [location, closeMenu]);
+
+    const navLinks = [
+        { to: "/", text: "Home", className: "hover:text-yellow-200" },
+        { to: "/projects", text: "Projects", className: "hover:text-yellow-200" },
+        { to: "/about", text: "About", className: "hover:text-yellow-200" },
+        { to: "/contact", text: "Contact", className: "bg-[#ba86ea81] hover:text-yellow-200" }
+    ];
+
     return (
-        <div className=''>
-            <nav className="relative z-40 flex items-center justify-between p-5 text-white transition-shadow duration-300 ease-in-out w-screen">
-                <div className="text-2xl font-bold">Dhiman<span className='text-[#8A2BE2]'>N.</span></div>
+        <nav className="relative z-10 flex items-center justify-between p-5 text-white transition-shadow duration-300 ease-in-out w-full">
+            <div className="text-2xl font-bold">
+                Dhiman<span className="text-[#8A2BE2]">N.</span>
+            </div>
 
-                {/* Mobile Menu */}
-                <div
-                    className={`flex flex-col items-center gap-5 bg-black md:bg-transparent z-50 md:flex-row md:items-center fixed md:static w-screen md:w-auto right-0 top-16 md:top-0 transition-transform duration-300 ease-in-out transform md:translate-x-0 ${isOpen ? 'translate-x-0' : 'translate-x-full'} ${isOpen ? 'h-screen overflow-y-auto' : ''}`} // Ensuring the menu is scrollable when open
-                >
-                    <Link to="/" onClick={toggleMenu}>
-                        <p className="px-4 py-2 text-white hover:text-yellow-200 font-semibold rounded-md pl-4 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105" style={{ textShadow: '4px 4px 8px #8A2BE2' }}>Home</p>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex md:items-center">
+                {navLinks.map((link) => (
+                    <Link key={link.to} to={link.to}>
+                        <p className={`px-4 py-2 text-white font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 ${link.className}`}>
+                            {link.text}
+                        </p>
                     </Link>
-                    <Link to="/projects" onClick={toggleMenu}>
-                        <p className="px-4 py-2 text-white hover:text-yellow-200 font-semibold rounded-md pl-4 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105">Projects</p>
-                    </Link>
-                    <Link to="/about" onClick={toggleMenu}>
-                        <p className="px-4 py-2 text-white hover:text-yellow-200 font-semibold rounded-md pl-4 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105">About</p>
-                    </Link>
-                    <Link to="/contact" onClick={toggleMenu}>
-                        <p className="px-4 py-2 text-white bg-[#ba86ea81] hover:text-yellow-200 font-semibold rounded-md pl-4 transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105">Contact</p>
-                    </Link>
-                </div>
+                ))}
+            </div>
 
-                {/* Hamburger Menu */}
-                <div className={`md:hidden flex flex-col justify-between w-6 h-5 cursor-pointer transform ${isOpen ? 'rotate-90' : ''}`} onClick={toggleMenu}>
-                    <div className={`bg-white h-0.5 w-full transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-                    <div className={`bg-white h-0.5 w-full transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : ''}`}></div>
-                    <div className={`bg-white h-0.5 w-full transition-transform duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+            {/* Mobile Menu */}
+            <div
+                className={`md:hidden fixed inset-0 z-50 bg-black bg-opacity-90 transition-opacity duration-300 ${
+                    isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
+            >
+                <div className="flex flex-col items-center justify-center h-full gap-5">
+                    {navLinks.map((link) => (
+                        <Link key={link.to} to={link.to} onClick={closeMenu}>
+                            <p className={`px-4 py-2 text-white font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:scale-105 ${link.className}`}>
+                                {link.text}
+                            </p>
+                        </Link>
+                    ))}
                 </div>
-            </nav>
-        </div>
+            </div>
+
+            {/* Hamburger Menu */}
+            <button
+                className="md:hidden z-50 w-10 h-10 relative focus:outline-none"
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+                aria-expanded={isOpen}
+            >
+                <div className="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <span
+                        aria-hidden="true"
+                        className={`block absolute h-0.5 w-5 bg-white transform transition duration-300 ease-in-out ${
+                            isOpen ? 'rotate-45' : '-translate-y-1.5'
+                        }`}
+                    ></span>
+                    <span
+                        aria-hidden="true"
+                        className={`block absolute h-0.5 w-5 bg-white transform transition duration-300 ease-in-out ${
+                            isOpen ? 'opacity-0' : 'opacity-100'
+                        }`}
+                    ></span>
+                    <span
+                        aria-hidden="true"
+                        className={`block absolute h-0.5 w-5 bg-white transform transition duration-300 ease-in-out ${
+                            isOpen ? '-rotate-45' : 'translate-y-1.5'
+                        }`}
+                    ></span>
+                </div>
+            </button>
+        </nav>
     );
 };
 

@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
-
+import  Alert  from '../Others/Alert';
 
 import './Contact.css';
 
+
 const Contact = () => {
+
+  const [showAlert, setShowAlert] = useState(true);
+  const [alertMessage, setAlertMessage] = useState('send');
+  const [alertType, setAlertType] = useState('error');
+
+  const triggerAlert = (message, type) => {
+    setAlertMessage(message);
+    setAlertType(type);
+    setShowAlert(true);
+
+    // Automatically hide the alert after 3 seconds
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,12 +34,7 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log('Form Data:', formData);
-  //   // Handle form submission (e.g., send data to backend or use an API like EmailJS)
-  //   setFormData({ name: '', email: '', message: '' }); // Clear the form after submission
-  // };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,9 +48,9 @@ const Contact = () => {
       .then((response) => {
         if (response.ok) {
           setFormData({ name: '', email: '', message: '' });
-          console.log('Message sent successfully');
+          triggerAlert('message sent successfully', 'success')
         } else {
-          console.log('Form submission failed');
+          triggerAlert('Form submission failed', 'error')
         }
       })
       .catch((error) => console.error('Error:', error));
@@ -104,7 +116,9 @@ const Contact = () => {
 
         </div>
       </div>
-
+      {showAlert && (
+      <Alert message={alertMessage} type={alertType} onClose={() => setShowAlert(false)}  />
+       )} 
     </div>
   );
 

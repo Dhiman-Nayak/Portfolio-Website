@@ -88,13 +88,13 @@
 }
 
 .star-field .layer:nth-child(1) {
-    animation: sf-fly-by-1 7s linear infinite;
+    animation: sf-fly-by-1 14s linear infinite;
 }
 
 .star-field .layer:nth-child(2) {
-    animation: sf-fly-by-2 7s linear infinite;
+    animation: sf-fly-by-2 14s linear infinite;
 }
 
 .star-field .layer:nth-child(3) {
-    animation: sf-fly-by-3 7s linear infinite;
+    animation: sf-fly-by-3 14s linear infinite;
 }
