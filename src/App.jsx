@@ -10,6 +10,7 @@ import ProjectComponent from './components/Project/Project.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import About from './components/About/About.jsx';
 import Test from './components/Test.jsx';
+import App1 from './components/gg/App1.jsx';
 function App() {
   
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/projects" element={<ProjectComponent />} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/about" element={<About/>} />
-          <Route path="/gg" element={<Test/>} />
+          {/* <Route path="/gg" element={<Test/>} /> */}
         </Routes>
       </BrowserRouter>
 

@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <div className=''>
       <div>
-        <div className="contact-container w-80 md:w-5/12 mt-4">
+        <div className="contact-container w-80 md:w-5/12 mt-4 -z-10">
           <h2>Contact Me</h2>
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
@@ -84,8 +84,9 @@ const Contact = () => {
                 placeholder="Enter your message"
               ></textarea>
             </div>
-            <button type="submit" className="submit-btn" onClick={handleSubmit}>Send Message</button>
+            <button type="submit" className="submit-btn">Send Message</button>
           </form>
+
         </div>
         <div className="social-icons ">
           <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer">
@@ -103,7 +104,7 @@ const Contact = () => {
 
         </div>
       </div>
-      
+
     </div>
   );
 
