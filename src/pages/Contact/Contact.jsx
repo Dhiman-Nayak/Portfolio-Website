@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
-import  Alert  from '../Others/Alert';
+import  Alert  from '../../components/alert/Alert';
 
 import './Contact.css';
 
 
 const Contact = () => {
 
-  const [showAlert, setShowAlert] = useState(true);
-  const [alertMessage, setAlertMessage] = useState('send');
-  const [alertType, setAlertType] = useState('error');
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertType, setAlertType] = useState('info');
 
   const triggerAlert = (message, type) => {
     setAlertMessage(message);

@@ -15,3 +15,6 @@
     transform: scale(1.2);
     transition: transform 0.2s;
 }
+.about-class{
+    max-width: calc(100% - 20px);
+}
