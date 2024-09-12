@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'; // Import Framer Motion
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import Skill from '../../components/skills/Skill';
+import About0 from '../../components/About/About0';
 const Home = () => {
   const scrollToSection = () => {
     document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
@@ -110,29 +111,8 @@ const Home = () => {
 
       {/* </div > */}
 
+      <About0/>
       
-      <div id="about-section" className="container mx-auto my-12 px-12 py-12 about-class" >
-
-        {/* Python Function Styled Text */}
-        <div className="font-mono text-gray-300 text-lg md:text-xl leading-relaxed px-4 lg:px-40">
-          <p className="text-purple-400 text-3xl">
-            About():  
-          </p>
-          <p className="ml-8">  
-            """
-            I am a passionate Full Stack Developer with experience in React, Node.js, and Blockchain development.
-            I love creating beautiful, responsive, and dynamic web applications. Let's build something amazing together!
-            """
-          </p>
-        </div>
-
-        <div className="mt-20 font-mono text-gray-300 text-lg md:text-xl leading-relaxed px-4 lg:px-40">
-          <p className="text-purple-400 text-3xl">
-            Skills():  
-          </p>
-          <Skill/>
-        </div>
-      </div>
 
     </>
   );

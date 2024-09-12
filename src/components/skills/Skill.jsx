@@ -3,6 +3,8 @@ import cpp from "../../assets/C++-Logo.svg"
 import js from "../../assets/javascript-1.svg"
 import python from "../../assets/python-5.svg"
 import solidity from "../../assets/solidity.svg"
+import html from "../../assets/html-icon.svg"
+import css from "../../assets/css.svg"
 
 import reactLogo from '../../assets/react.svg'
 import nodejs from "../../assets/Node.js-Logo.wine.svg"
@@ -18,10 +20,12 @@ import { img } from 'framer-motion/client'
 
 function Skill() {
     const lang = {
-        "JavaScript": js,
+        "JS": js,
         "python": python,
         "C++": cpp,
-        "Solidity": solidity
+        "Solidity": solidity,
+        "HTML":html,
+        "CSS" : css
     }
     const framework = {
         "React JS": reactLogo,
@@ -43,29 +47,29 @@ function Skill() {
                 <div className="container mx-auto px-4">
 
                     {/* Languages */}
-                    <h3 className="text-2xl text-purple-400 mb-4">Languages</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+                    {/* <h3 className="text-2xl text-purple-400 mb-4">Languages</h3> */}
+                    <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 justify-around gap-8 mb-14">
                         {Object.entries(lang).map(([key, value]) => (
                             <div key={key} className="flex flex-col items-center">
                                 <img
                                     src={value}
                                     alt={key}
-                                    className="w-16 h-16 filter grayscale hover:filter-none transition ease-in-out duration-300"
+                                    className={`w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300 ${key==="Solidity"?`bg-white`:`bg-transparent`}`}
                                 />
-                                <p className="text-white mt-2">{key}</p>
+                                <p className="text-white mt-1">{key}</p>
                             </div>
                         ))}
                     </div>
 
                     {/* Frameworks */}
-                    <h3 className="text-2xl text-purple-400 mt-10 mb-4">Frameworks</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+                    {/* <h3 className="text-2xl text-purple-400 mt-10 mb-4">Frameworks</h3> */}
+                    <div className="grid grid-cols-4 sm:grid-cols-4 gap-8 mb-14">
                         {Object.entries(framework).map(([key, value]) => (
                             <div key={key} className="flex flex-col items-center">
                                 <img
                                     src={value}
                                     alt={key}
-                                    className="w-16 h-16 filter grayscale hover:filter-none transition ease-in-out duration-300"
+                                    className={`w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300 ${key==="Node Js"?`bg-white`:`bg-transparent`}`}
                                 />
                                 <p className="text-white mt-2">{key}</p>
                             </div>
@@ -73,29 +77,29 @@ function Skill() {
                     </div>
 
                     {/* Databases */}
-                    <h3 className="text-2xl text-purple-400 mt-10 mb-4">Databases</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+                    {/* <h3 className="text-2xl text-purple-400 mt-10 mb-4">Databases</h3> */}
+                    <div className="grid grid-cols-4 sm:grid-cols-4 gap-8 mb-14">
                         {Object.entries(database).map(([key, value]) => (
                             <div key={key} className="flex flex-col items-center">
                                 <img
                                     src={value}
                                     alt={key}
-                                    className="w-16 h-16 filter grayscale hover:filter-none transition ease-in-out duration-300"
+                                    className="bg-white w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300"
                                 />
-                                <p className="text-white mt-2">{key}</p>
+                                <p className="text-white">{key}</p>
                             </div>
                         ))}
                     </div>
 
                     {/* Tools */}
-                    <h3 className="text-2xl text-purple-400 mt-10 mb-4">Tools</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+                    {/* <h3 className="text-2xl text-purple-400 mt-10 mb-4">Tools</h3> */}
+                    <div className="grid grid-cols-4 sm:grid-cols-4 gap-8 mb-14">
                         {Object.entries(tool).map(([key, value]) => (
-                            <div key={key} className="flex flex-col items-center">
+                            <div key={key} className="flex flex-col items-center ">
                                 <img
                                     src={value}
                                     alt={key}
-                                    className="w-16 h-16 filter grayscale hover:filter-none transition ease-in-out duration-300"
+                                    className=" w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300"
                                 />
                                 <p className="text-white mt-2">{key}</p>
                             </div>
