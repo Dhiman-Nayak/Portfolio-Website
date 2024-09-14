@@ -54,9 +54,9 @@ function Skill() {
                                 <img
                                     src={value}
                                     alt={key}
-                                    className={`w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300 ${key==="Solidity"?`bg-white`:`bg-transparent`}`}
+                                    className={`w-16 h-10 opacity-70 hover:opacity-100 transition ease-in-out duration-300 ${key==="Solidity"?`bg-white`:`bg-transparent`}`}
                                 />
-                                <p className="text-white mt-1">{key}</p>
+                                <p className="text-white mt-1 text-sm">{key}</p>
                             </div>
                         ))}
                     </div>
@@ -69,9 +69,9 @@ function Skill() {
                                 <img
                                     src={value}
                                     alt={key}
-                                    className={`w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300 ${key==="Node Js"?`bg-white`:`bg-transparent`}`}
+                                    className={`w-16 h-10 opacity-70 hover:opacity-100 transition ease-in-out duration-300 ${key==="Node Js"?`bg-white`:`bg-transparent`}`}
                                 />
-                                <p className="text-white mt-2">{key}</p>
+                                <p className="text-white mt-2 text-sm">{key}</p>
                             </div>
                         ))}
                     </div>
@@ -84,9 +84,9 @@ function Skill() {
                                 <img
                                     src={value}
                                     alt={key}
-                                    className="bg-white w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300"
+                                    className="bg-white w-16 h-10 opacity-70 hover:opacity-100 transition ease-in-out duration-300"
                                 />
-                                <p className="text-white">{key}</p>
+                                <p className="text-white text-sm">{key}</p>
                             </div>
                         ))}
                     </div>
@@ -99,9 +99,9 @@ function Skill() {
                                 <img
                                     src={value}
                                     alt={key}
-                                    className=" w-16 h-16 opacity-70 hover:opacity-100 transition ease-in-out duration-300"
+                                    className=" w-16 h-10 opacity-70 hover:opacity-100 transition ease-in-out duration-300"
                                 />
-                                <p className="text-white mt-2">{key}</p>
+                                <p className="text-white mt-2 text-sm">{key}</p>
                             </div>
                         ))}
                     </div>

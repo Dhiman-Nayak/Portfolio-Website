@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion'; // Import Framer Motion
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import Skill from '../../components/skills/Skill';
 import About0 from '../../components/About/About0';
+import "./Home.css"
 const Home = () => {
   const scrollToSection = () => {
     document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
@@ -30,8 +30,8 @@ const Home = () => {
   return (
     <>
 
-      <div className="container mx-auto my-8 px-4 bg-transparent rounded-xl shadow-2xl">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-center md:py-8">
+      <div className="container mx-auto md:my-8 px-4 bg-transparent rounded-xl shadow-2xl">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center md:py-6">
 
           {/* Text Section */}
           <motion.div
@@ -48,7 +48,7 @@ const Home = () => {
               </span>
             </h1>
 
-            <div className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <div className="text-xl text-gray-300 md:mb-8 mb-6 leading-relaxed">
               I'm Full Stack Developer
             </div>
             <Link to="/contact">
@@ -63,11 +63,11 @@ const Home = () => {
           </motion.div>
 
           {/* Image and Icons */}
-          <div className="flex items-start justify-center md:space-x-8 mb-12 md:mb-0">
+          <div className="flex items-start justify-center md:space-x-8  md:mb-0">
             <motion.img
               src="IMG20240828202308-Photoroom.png"
               alt="Dhiman Nayak"
-              className="w-56 h-96 md:w-80 md:h-1/2 rounded-full border-4 border-purple-400 shadow-lg"
+              className="profileImg md:w-80 md:h-1/2 rounded-full border-4 border-purple-400 shadow-lg"
               initial="hidden"
               animate="visible"
               variants={imageVariants}
@@ -97,7 +97,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-16 md:mt-0">
+        <div className="flex justify-center mt-6 md:mt-0">
           <button
             className="text-white animate-bounce focus:outline-none"
             onClick={scrollToSection}
