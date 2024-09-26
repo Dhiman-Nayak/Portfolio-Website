@@ -3,7 +3,7 @@ import Skill from '../skills/Skill'
 function About0() {
     return (
         <div>
-            <div id="about-section" className="container mx-auto my-12 px-12 pr-2 py-12 about-class" >
+            <div id="about-section" className="container mx-auto  px-12 pr-2  about-class" >
 
                 {/* Python Function Styled Text */}
                 <div className="font-mono text-gray-300 text-lg md:text-xl leading-relaxed px-4 lg:px-40">

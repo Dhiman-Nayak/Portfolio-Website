@@ -86,3 +86,23 @@ body {
     font-size: 0.9rem;
   }
 }
+.contact-container {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 20px;
+  /* max-width: 600px; */
+  margin: 1.5em auto;
+  text-align: center;
+  border-width: 2px;
+  border-color: #9d46ee;
+  border-radius: 2%;
+  opacity: 85%;
+  
+  transition: box-shadow 0.3s ease-in-out;
+
+}
+
+.contact-container:hover {
+  opacity: 100%;
+  box-shadow: 0 0 20px #9d46ee;
+}

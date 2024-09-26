@@ -67,7 +67,7 @@ const Home = () => {
             <motion.img
               src="IMG20240828202308-Photoroom.png"
               alt="Dhiman Nayak"
-              className="profileImg md:w-80 md:h-1/2 rounded-full border-4 border-purple-400 shadow-lg"
+              className="profileImg sm:w-64 md:w-80 h-96 md:h-1/2 rounded-full border-4 border-purple-400 shadow-lg"
               initial="hidden"
               animate="visible"
               variants={imageVariants}
@@ -99,7 +99,7 @@ const Home = () => {
 
         <div className="flex justify-center mt-6 md:mt-0">
           <button
-            className="text-white animate-bounce focus:outline-none"
+            className="text-white  animate-bounce focus:outline-none"
             onClick={scrollToSection}
           >
             <svg className="w-8 h-8 text-purple-400 hover:text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -110,8 +110,10 @@ const Home = () => {
       </div>
 
       {/* </div > */}
+      <div className='my-12 py-12'>
 
       <About0/>
+      </div>
       
 
     </>

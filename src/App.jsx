@@ -10,6 +10,7 @@ import ProjectComponent from './pages/Project/Project.jsx';
 import Contact from './pages/Contact/Contact.jsx';
 import About from './components/About/AboutPage.jsx';
 import Test from './components/Test.jsx';
+import Skill from './components/Skill.jsx';
 function App() {
   
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/gg" element={<Test/>} />
+          <Route path="/ss" element={<Skill/>} />
         </Routes>
       </BrowserRouter>
 
